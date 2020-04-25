@@ -45,19 +45,21 @@
     canvasContext.fill();
   }
 
-  function moveSnowBalls(canvas, snowBall) {
-    snowBall.x += snowBall.speedX;
-    snowBall.y += snowBall.speedY;
+  function moveSnowBalls(canvas) {
+    return (snowBall) => {
+      snowBall.x += snowBall.speedX;
+      snowBall.y += snowBall.speedY;
 
-    if (snowBall.x > canvas.width) {
-      snowBall.x = 0;
-    } else if (snowBall.x < 0) {
-      snowBall.x = canvas.width;
-    }
+      if (snowBall.x > canvas.width) {
+        snowBall.x = 0;
+      } else if (snowBall.x < 0) {
+        snowBall.x = canvas.width;
+      }
 
-    if (snowBall.y > canvas.height) {
-      snowBall.y = 0;
-    }
+      if (snowBall.y > canvas.height) {
+        snowBall.y = 0;
+      }
+    };
   }
   function run() {
     const { canvas, canvasContext, numberOfSnowBalls } = setup();
